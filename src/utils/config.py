@@ -1,5 +1,6 @@
 from json import load
 
+
 def read_config(*fields: list[str]) -> str | int | float | dict | list:
     """
     Reads a field from the config file.
