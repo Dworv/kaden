@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "kaden"
+version = "0.1.0"
+description = "A Discord bot for easy online contests."
+authors = ["Dworv"]
+license = "Apache v2"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+naff = "^1.8.1"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
