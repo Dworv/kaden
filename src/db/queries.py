@@ -13,4 +13,5 @@ class DBClient:
         self.comps_cur = self.cconn.cursor()
         self.guilds_cur = self.gconn.cursor()
 
+
 database = DBClient()
