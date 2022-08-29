@@ -14,7 +14,8 @@ bot = Client(
         ActivityType.WATCHING,
         "https://github.com/dworv",
     ),
-    delete_unused_application_cmds=True
+    delete_unused_application_cmds=True,
+    sync_interactions=False
 )
 
 for root, _, files in os.walk("exts"):
