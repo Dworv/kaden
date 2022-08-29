@@ -10,5 +10,5 @@ def read_config(*fields: list[str]) -> str | int | float | dict | list:
     with open("config.json") as f:
         item: dict = load(f)
         for field in fields:
-            item = item.get(field)
+            item = item[field]
         return item

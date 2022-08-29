@@ -1,3 +1,11 @@
 {
-
+    "colors": {
+        "info": 5793266,
+        "success": 5763719,
+        "error": 15548997
+    },
+    "invite_url": "https://sample.com",
+    "icon_url": "https://cdn.discordapp.com/embed/avatars/2.png",
+    "allowed_title_chars": "abcdefghijklmnopqrstuvwxyz1234567890 ",
+    "allowed_description_chars": "abcdefghijklmnopqrstuvwxyz1234567890!.?#$% "
 }
