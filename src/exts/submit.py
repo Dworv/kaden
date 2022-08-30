@@ -6,10 +6,7 @@ class Submit(Extension):
 
     @slash_command("submit")
     @slash_option(
-        "url",
-        "The url to the submission.",
-        OptionTypes.STRING,
-        required=True
+        "url", "The url to the submission.", OptionTypes.STRING, required=True
     )
     async def submit(self, ctx: InteractionContext):
         """Make a submission to a competition."""
