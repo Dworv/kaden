@@ -4,8 +4,6 @@ import logging
 
 from naff import Activity, ActivityType, Client
 
-from utils import read_config
-
 logging.basicConfig(level=logging.DEBUG)
 
 bot = Client(
@@ -15,7 +13,7 @@ bot = Client(
         "https://github.com/dworv",
     ),
     delete_unused_application_cmds=True,
-    sync_interactions=False
+    sync_interactions=False,
 )
 
 for root, _, files in os.walk("exts"):
