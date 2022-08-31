@@ -78,14 +78,11 @@ class Manage(Extension):
         if not await val_tournament_desc(ctx, description):
             return
         end = add_hours(length)
-        comp_id = database.create_competition(
-            ctx.guild_id, ctx.author.id, name, description, end
-        )
+        database.create_competition(ctx.guild_id, ctx.author.id, name, description, end)
         await ctx.send(
             embeds=success_embed(
                 f"Competition `{name}` created! Display a nice message with a submit button using </comp show:69>"
-            ),
-            components=submit_button(comp_id),
+            )
         )
 
     @comp.subcommand("end")
