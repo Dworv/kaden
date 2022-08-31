@@ -13,7 +13,11 @@ from .embeds import error_embed, info_embed
 
 
 def submit_button(comp_id: int):
-    return Button(ButtonStyles.GREEN, "Make Submission!", "✉", f"submit~{comp_id}")
+    return Button(ButtonStyles.GREEN, "Make Submission!", "📭", f"submit~{comp_id}")
+
+
+def dead_submit_button():
+    return Button(ButtonStyles.GREY, "Competition Over.", "📪", "deadsubmit", disabled=True)
 
 
 def comp_select(guild_id: int, state: CompState):
