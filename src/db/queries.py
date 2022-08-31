@@ -31,16 +31,22 @@ class DBClient:
                 name,
                 description,
                 end,
-                time.time(),
+                int(time.time())
             ),
         )
-        comp_id = next(res)
+        comp_id = next(res)[0]
         self.conns["comps"].commit()
         return comp_id
 
     def set_comp_state(self, comp_id: int, state: CompState):
         self.curs["comps"].execute(
             "UPDATE comps SET state = ? WHERE comp_id = ?", (state.value, comp_id)
+        )
+        self.conns["comps"].commit()
+
+    def set_comp_criteria(self, comp_id: int, criterias: list[str]):
+        self.curs["comps"].execute(
+            "UPDATE comps SET (criteria1, criteria2, criteria3) = (?, ?, ?) WHERE comp_id = ?", (*criterias, comp_id)
         )
         self.conns["comps"].commit()
 
@@ -68,12 +74,18 @@ class DBClient:
 
     def create_submission(self, comp_id, user_id, url):
         res = self.curs["submissions"].execute(
-            "INSERT INTO submissions (comp_id, user_id, url, creation_date) values (?, ?, ?, ?, ?) RETURNING submission_id",
-            (comp_id, user_id, url, time.time(), 0),
+            "INSERT INTO submissions (comp_id, user_id, url, creation_date) values (?, ?, ?, ?) RETURNING submission_id",
+            (comp_id, user_id, url, time.time()),
         )
         submission_id = next(res)
         self.conns["submissions"].commit()
         return submission_id
+
+    def set_submission_score(self, submission_id, scores: list[float]):
+        self.curs["submissions"].execute(
+            "UPDATE submissions SET (score1, score2, score3) = (?, ?, ?) WHERE comp_id = ?", (*scores, submission_id)
+        )
+        self.conns["submissions"].commit()
 
     def get_submission(self, submission_id):
         self.curs["submissions"].execute(
