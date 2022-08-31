@@ -33,7 +33,13 @@ def info_embed(title: str, msg: str):
 def comp_embed(comp):
     return Embed(
         title="Check out this contest!",
-        description=f"**{comp[4]}**\n{'~'*len(comp[4])}\n{comp[5]}",
+        description=f"**{comp[4]}**",
         color=read_config("colors", "success"),
-        timestamp=Timestamp.fromtimestamp(comp[7]),
+        timestamp=Timestamp.now(),
+        fields=[
+            EmbedField("Description", comp[5]),
+            EmbedField("Began", f"<t:{comp[7]}:R>", True),
+            EmbedField("Ends", f"<t:{comp[6]}:R>", True),
+            EmbedField("Creator", f"<@{comp[2]}>", True)
+        ]
     )
