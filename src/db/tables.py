@@ -14,6 +14,9 @@ CREATE TABLE IF NOT EXISTS "comps" (
     "description"   TEXT NOT NULL,
     "end"   INTEGER NOT NULL,
     "start" INTEGER NOT NULL,
+    "criteria1" TEXT,
+    "criteria2" TEXT,
+    "criteria3" TEXT,
     PRIMARY KEY("comp_id" AUTOINCREMENT)
 )
 """
@@ -25,7 +28,9 @@ CREATE TABLE IF NOT EXISTS "submissions" (
     "user_id" INTEGER NOT NULL,
     "url"   TEXT NOT NULL,
     "creation_date" INTEGER NOT NULL,
-    "score" INTEGER NOT NULL,
+    "score1" INTEGER,
+    "score2" INTEGER,
+    "score3" INTEGER,
     PRIMARY KEY("submission_id" AUTOINCREMENT)
 )
 """
